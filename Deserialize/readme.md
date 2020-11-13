@@ -15,7 +15,7 @@ throw new Exception("ga");
 ```
 # Phân tích
   Như thường lệ, mỗi khi obj được khởi tạo và nếu không có gì xảy ra, nó sẽ bị hủy ở cuối chương trình, nhưng nếu ta muốn gọi hàm hủy ngay sau lệnh gọi unserialize thì sao? 
-  đó là vấn đề ta sẽ tìm hiểu ngay sau đây
+  đó là vấn đề ta sẽ tìm hiểu ngay sau đây.
   ở case trên, ta thấy sau khi unserialize thì chương trình sẽ ném ra một exception khiến chương trình không thể gọi hàm destruct khi kết thúc mã, vậy làm thế nào để ta bắt 
   nó hủy ngay sau khi unserialize? cách làm như vậy được gọi là Fast destruct 
   ở đây có một thư viện để làm điều đó, tham khảo tại
