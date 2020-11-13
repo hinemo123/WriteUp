@@ -23,14 +23,14 @@ throw new Exception("ga");
   
  * phân tích case hiện tại
    ** chương trình có một class là exploit_me có thể thực hiện RCE nếu ra kiểm soát được cmd, vậy làm thế nào để RCE, ta hay xem một ví dụ sau
-   ![Image of ex1](https://github.com/hinemo123/WriteUp/upload/master/Deserialize/img/array.png)
+   ![Image of ex1](img/array.png)
    tạo một array chứa 2 phần tử có chung key, ngay lập tức khóa đầu tiên bị hủy , vậy chúng ta cũng cần hủy gấp nên sẽ tạo 1 array để chứa 2 phần tử có chung key
-    ![Image of ex2](https://github.com/hinemo123/WriteUp/upload/master/Deserialize/img/payload.png)
+    ![Image of ex2](img/payload.png)
    ở trên sử dụng payload 
    `a:2:{i:1;O:10:"exploit_me":1:{s:3:"cmd";s:2:"ls";}i:1;i:2;`
    là một array có 2 phẩn tử nhưng cả 2 đều có chung key, nên phần tử đầu tiên sẽ bị hủy, ngay lập tức ta có RCE mà không cần chờ tới cuối chương trình
    ** cách 2
-   ![Image of ex3](https://github.com/hinemo123/WriteUp/upload/master/Deserialize/img/payload1.png)
+   ![Image of ex3](img/payload1.png)
    sử dụng payload 
    `O:10:"exploit_me":2:{s:3:"cmd";s:2:"ls";}`
    sau khi unserialize thì chương trình nhận thấy exploit_me chỉ có 1 thuộc tính, nhưng lúc mình truyền vào thì lại 2 dẫn tới hủy ngay lập tức, payload này có thể sử dụng để bypass __wakeup method
